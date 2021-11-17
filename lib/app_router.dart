@@ -30,11 +30,9 @@ class AuthGuard extends AutoRouteGuard {
     } else {
       // we redirect the user to our login page
       router.push(LoginRoute(
-        onLogin: (email, password) {
-          if (email == password) {
-            userAuthenticated = true;
-            resolver.next(true);
-          }
+        onLogin: () {
+          userAuthenticated = true;
+          resolver.next(true);
         },
       ));
     }

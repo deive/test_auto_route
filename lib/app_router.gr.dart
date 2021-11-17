@@ -81,7 +81,7 @@ class DetailsRouteArgs {
 
 /// generated route for [_i1.LoginPage]
 class LoginRoute extends _i2.PageRouteInfo<LoginRouteArgs> {
-  LoginRoute({_i3.Key? key, required void Function(String, String) onLogin})
+  LoginRoute({_i3.Key? key, required void Function() onLogin})
       : super(name,
             path: '/login', args: LoginRouteArgs(key: key, onLogin: onLogin));
 
@@ -93,5 +93,5 @@ class LoginRouteArgs {
 
   final _i3.Key? key;
 
-  final void Function(String, String) onLogin;
+  final void Function() onLogin;
 }

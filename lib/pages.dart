@@ -12,7 +12,7 @@ class Data {
   static final List<Data> all = List.generate(100, (i) => Data(i.toString()));
 }
 
-typedef LoginCallback = void Function(String email, String password);
+typedef LoginCallback = void Function();
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key, required this.onLogin}) : super(key: key);
@@ -47,8 +47,12 @@ class LoginPageState extends State<LoginPage> {
                 textAlign: TextAlign.center,
               ),
               TextButton(
-                onPressed: () => widget.onLogin(
-                    emailController.text, passwordController.text),
+                onPressed: () {
+                  if (emailController.text == passwordController.text) {
+                    AutoRouter.of(context).popForced();
+                    widget.onLogin();
+                  }
+                },
                 child: const Text("Login"),
               ),
             ],
