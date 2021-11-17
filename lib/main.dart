@@ -3,16 +3,16 @@ import 'package:test_auto_route/app_router.dart';
 import 'package:test_auto_route/app_router.gr.dart';
 
 void main() {
-  runApp(App());
+  runApp(const App());
 }
 
 class App extends StatelessWidget {
-  App({Key? key}) : super(key: key);
+  const App({Key? key}) : super(key: key);
 
-  final _appRouter = AppRouter(authGuard: AuthGuard());
+  static final appRouter = AppRouter(authGuard: AuthGuard());
 
   @override
   Widget build(BuildContext context) => MaterialApp.router(
-      routeInformationParser: _appRouter.defaultRouteParser(),
-      routerDelegate: _appRouter.delegate());
+      routeInformationParser: appRouter.defaultRouteParser(),
+      routerDelegate: appRouter.delegate());
 }

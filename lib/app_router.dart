@@ -2,20 +2,18 @@ import 'package:auto_route/auto_route.dart';
 import 'package:test_auto_route/pages.dart';
 import 'package:test_auto_route/app_router.gr.dart';
 
-// part 'app_router.gr.dart'
-
-@AdaptiveAutoRouter(
+@MaterialAutoRouter(
   replaceInRouteName: 'Page,Route',
   routes: <AutoRoute>[
     AutoRoute(
         path: '/list', page: ListPage, initial: true, guards: [AuthGuard]),
     AutoRoute(path: '/list/:id', page: DetailsPage, guards: [AuthGuard]),
-    AutoRoute<bool>(path: '/login', page: LoginPage),
+    AutoRoute(path: '/login', page: LoginPage),
     RedirectRoute(path: '*', redirectTo: '/'),
   ],
 )
 // extend the generated private router
-class $AppRouter {} // extends _$AppRouter {}
+class $AppRouter {}
 
 class AuthGuard extends AutoRouteGuard {
   bool userAuthenticated = false;
